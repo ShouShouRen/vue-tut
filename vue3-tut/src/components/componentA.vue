@@ -20,7 +20,7 @@
         <p>{{ text }}</p>
     </div>
 
-    <div v-else>沒畫面</div>
+    <div v-if="view !== 1 && view !== 2">沒畫面</div>
 </template>
 
 <script setup>
