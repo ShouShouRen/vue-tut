@@ -1,6 +1,6 @@
 <template>
-    <button>顯示單向綁定</button>
-    <button>顯示雙向綁定</button>
+    <button v-on:click="changeView(1)">顯示單向綁定</button>
+    <button @click="changeView(2)">顯示雙向綁定</button>
 
     <div>
         <p>Hello World</p>
@@ -27,7 +27,16 @@ const data = "Hello Vue";
 // ref可使資料同步
 const text = ref("123");
 
-const view = ref(1)
+const view = ref(1);
+
+const changeView = (index) => {
+    view.value = index;
+}
+// const changeView2 = () => {
+//     view.value = 2;
+// }
+
+
 </script>
 
 
