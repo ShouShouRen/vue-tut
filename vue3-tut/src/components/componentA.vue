@@ -1,14 +1,23 @@
 <template>
-    <p>Hello World</p>
+    <button>顯示單向綁定</button>
+    <button>顯示雙向綁定</button>
 
-    <p>資料的單向綁定</p>
-    <!-- 資料的單向綁定 -->
-    {{ data }}
+    <div>
+        <p>Hello World</p>
+    </div>
 
-    <!-- 資料的雙向綁定 -->
-    <p>資料的雙向綁定</p>
-    <input type="text" v-model="text">
-    <p>{{text}}</p>
+    <div class="container-1" v-if="view === 1">
+        <p>資料的單向綁定</p>
+        <!-- 資料的單向綁定 -->
+        {{ data }}
+    </div>
+
+    <div class="container-2" v-if="view === 2">
+        <!-- 資料的雙向綁定 -->
+        <p>資料的雙向綁定</p>
+        <input type="text" v-model="text">
+        <p>{{ text }}</p>
+    </div>
 </template>
 
 <script setup>
@@ -17,8 +26,17 @@ import { ref } from "@vue/reactivity";
 const data = "Hello Vue";
 // ref可使資料同步
 const text = ref("123");
+
+const view = ref(1)
 </script>
 
 
 <style scoped>
+.container-1 {
+    border: 2px solid #f00;
+}
+
+.container-2 {
+    border: 2px solid skyblue;
+}
 </style>
