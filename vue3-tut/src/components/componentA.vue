@@ -15,12 +15,26 @@
 
     <div class="container-2" v-if="view === 2">
         <!-- 資料的雙向綁定 -->
-        <p>資料的雙向綁定</p>
+        <!-- <p>資料的雙向綁定</p> -->
         <input type="text" v-model="text">
         <p>{{ text }}</p>
     </div>
 
     <div v-if="view !== 1 && view !== 2">沒畫面</div>
+
+    <!------------ v-show ------------>
+    <!-- <div class="container-1" v-show="view === 1">
+        <p>資料的單向綁定</p>
+        {{ data }}
+    </div>
+
+    <div class="container-2" v-show="view === 2">
+        <p>資料的雙向綁定</p>
+        <input type="text" v-model="text">
+        <p>{{ text }}</p>
+    </div>
+
+    <div v-show="view !== 1 && view !== 2">沒畫面</div> -->
 </template>
 
 <script setup>
