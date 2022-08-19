@@ -1,6 +1,7 @@
 <template>
     <button v-on:click="changeView(1)">顯示單向綁定</button>
     <button @click="changeView(2)">顯示雙向綁定</button>
+    <button @click="changeView(3)">沒畫面</button>
 
     <div>
         <p>Hello World</p>
@@ -18,6 +19,8 @@
         <input type="text" v-model="text">
         <p>{{ text }}</p>
     </div>
+
+    <div v-else>沒畫面</div>
 </template>
 
 <script setup>
