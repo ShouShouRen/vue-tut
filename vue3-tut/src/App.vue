@@ -13,8 +13,14 @@
   <!-- <p class="test-cls" :key="test">{{ test }}</p> -->
 
   <h1>Computed 計算屬性</h1>
-  <h3>{{num * 100}}%</h3>
-  
+
+  <input type="text" v-model="text">
+  <br>
+  <br>
+  <input type="number" v-model="num">
+
+  <h3>{{ numFormat }}</h3>
+
 </template>
 
 <script setup>
@@ -35,8 +41,23 @@
 //   test.value = 'apple!'
 // },2000)
 
+import { computed, ref } from 'vue';
 
-const num = 0.6;
+const text = ref('hello world');
+
+const num = ref(0);
+
+const numFormat = computed(() => {
+  console.log('change');
+  if (Number.isNaN(num.value * 100)) return num.value
+  return `${num.value * 100}%`
+})
+
+// const numFormat = () => {
+//   console.log('change');
+//   if (Number.isNaN(num.value * 100)) return num.value
+//   return `${num.value * 100}%`
+// }
 
 </script>
 
@@ -53,12 +74,14 @@ const num = 0.6;
   font-size: 40px;
   animation: openIn 1s ease-in-out;
 }
-@keyframes openIn{
-  0%{
+
+@keyframes openIn {
+  0% {
     opacity: 0;
     transform: translatey(20px);
   }
-  100%{
+
+  100% {
     opacity: 1;
     transform: translatey(0);
   }
