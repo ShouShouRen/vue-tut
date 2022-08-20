@@ -10,26 +10,34 @@
   </p> -->
   <!-- <p v-for="text in dataLists">{{text}}</p> -->
 
-  <p class="test-cls" :key="test">{{ test }}</p>
+  <!-- <p class="test-cls" :key="test">{{ test }}</p> -->
+
+  <h1>Computed 計算屬性</h1>
+  <h3>{{num * 100}}%</h3>
+  
 </template>
 
 <script setup>
 // import componentA from './components/componentA.vue';
-import { ref } from 'vue'
-const test = ref("test");
-const dataList = [
-  'a', 'b', 'c', 'd', '123', 'abcd'
-]
-const dataLists = {
-  key1: 'ab',
-  key2: 'bc',
-  key3: 'cd',
-  key4: 'de',
-}
+// import { ref } from 'vue'
+// const test = ref("test");
+// const dataList = [
+//   'a', 'b', 'c', 'd', '123', 'abcd'
+// ]
+// const dataLists = {
+//   key1: 'ab',
+//   key2: 'bc',
+//   key3: 'cd',
+//   key4: 'de',
+// }
 
-setTimeout(()=>{
-  test.value = 'apple!'
-},2000)
+// setTimeout(()=>{
+//   test.value = 'apple!'
+// },2000)
+
+
+const num = 0.6;
+
 </script>
 
 
