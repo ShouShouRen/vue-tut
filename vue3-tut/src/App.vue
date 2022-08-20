@@ -26,7 +26,7 @@
   <p>{{firstName}}{{lastName}}</p> -->
 
 
-  <input type="text" v-model="text">
+  <input type="text" v-model="text.levels.text">
 </template>
 
 <script setup>
@@ -47,7 +47,7 @@
 //   test.value = 'apple!'
 // },2000)
 
-import { computed, ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 
 // const text = ref('hello world');
 
@@ -70,11 +70,11 @@ const firstName = ref('Peter');
 const lastName = ref('Chen');
 
 const fullName = computed({
-  get(){
+  get() {
     return `${firstName.value} ${lastName.value}`
   },
-  set(newName){
-    const [newfirstName,newLastName] = newName.split(' ');
+  set(newName) {
+    const [newfirstName, newLastName] = newName.split(' ');
     firstName.value = newfirstName;
     lastName.value = newLastName;
   }
@@ -83,9 +83,17 @@ const fullName = computed({
 
 
 
-const text = ref('');
-// watch
+// const text = ref('');
 
+const text = ref({
+  levels: {
+    text: '',
+  },
+})
+// watch
+watch(text, (newData, oldData) => {
+  console.log(newData, oldData);
+})
 
 
 // watchEffect
