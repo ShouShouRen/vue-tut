@@ -26,8 +26,10 @@
   <p>{{firstName}}{{lastName}}</p> -->
 
 
-  <input type="text" v-model="text.levels.text">
-  <input type="text" v-model="text.label">
+  <!-- <input type="text" v-model="text.levels.text">
+  <input type="text" v-model="text.label"> -->
+
+  <input type="text" v-model="text" :style="dynamicStyle">
 </template>
 
 <script setup>
@@ -85,12 +87,12 @@ const fullName = computed({
 
 // const text = ref('');
 
-const text = ref({
-  levels: {
-    text: '',
-  },
-  label: '123'
-})
+// const text = ref({
+//   levels: {
+//     text: '',
+//   },
+//   label: '123'
+// })
 
 // 如果不是物件就會使用ref如果是物件就使用reative因為reative只接受物件
 
@@ -126,12 +128,30 @@ const text = ref({
 
 
 // watchEffect
-const stop = watchEffect(() => {
-  console.log(text.value.levels.text,text.value.label);
-  if(text.value.label === 'stop')stop()
+// const stop = watchEffect(() => {
+//   console.log(text.value.levels.text,text.value.label);
+//   if(text.value.label === 'stop')stop()
+// })
+
+
+
+
+const text = ref('')
+const dynamicStyle = reactive({
+  color: 'red',
+  fontSize: '14px',
+  transition:'ease-in-out 0.2s'
 })
 
-
+watch(text, (newData) => {
+  if ((newData.length % 2 === 0)){
+    dynamicStyle.color = 'skyblue',
+    dynamicStyle.fontSize = '20px'
+  }else{
+    dynamicStyle.color = 'red',
+    dynamicStyle.fontSize = '14px'
+  }
+})
 </script>
 
 
