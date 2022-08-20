@@ -47,7 +47,7 @@
 //   test.value = 'apple!'
 // },2000)
 
-import { computed, ref, watch } from 'vue';
+import { computed, reactive, ref, watch } from 'vue';
 
 // const text = ref('hello world');
 
@@ -85,11 +85,22 @@ const fullName = computed({
 
 // const text = ref('');
 
-const text = ref({
+// const text = ref({
+//   levels: {
+//     text: '',
+//   },
+// })
+
+// reactive
+
+const text = reactive({
   levels: {
     text: '',
   },
 })
+
+
+
 // watch
 // watch(text, (newData, oldData) => {
 //   console.log(newData, oldData);
@@ -97,7 +108,7 @@ const text = ref({
 
 
 watch(
-  () => text.value.levels.text,
+  () => text.levels.text,
   (newData, oldData) => {
     console.log(newData)
   },
