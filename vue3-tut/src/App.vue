@@ -126,7 +126,7 @@ const text = ref({
 
 
 // watchEffect
-watchEffect(() => {
+const stop = watchEffect(() => {
   console.log(text.value.levels.text,text.value.label);
 })
 
