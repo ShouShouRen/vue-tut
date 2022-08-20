@@ -27,6 +27,7 @@
 
 
   <input type="text" v-model="text.levels.text">
+  <input type="text" v-model="text.label">
 </template>
 
 <script setup>
@@ -84,22 +85,24 @@ const fullName = computed({
 
 // const text = ref('');
 
-// const text = ref({
-//   levels: {
-//     text: '',
-//   },
-// })
+const text = ref({
+  levels: {
+    text: '',
+  },
+  label: '123'
+})
 
 // 如果不是物件就會使用ref如果是物件就使用reative因為reative只接受物件
 
 
 // reactive
 
-const text = reactive({
-  levels: {
-    text: '',
-  },
-})
+// const text = reactive({
+//   levels: {
+//     text: '',
+//   },
+//   label: '123',
+// })
 
 
 
@@ -110,7 +113,7 @@ const text = reactive({
 
 
 watch(
-  () => text.levels.text,
+  [() => text.value.levels.text, () => text.value.label],
   (newData, oldData) => {
     console.log(newData)
   },
@@ -123,6 +126,9 @@ watch(
 
 
 // watchEffect
+
+
+
 </script>
 
 
