@@ -21,6 +21,9 @@
 
   <h3>{{ numFormat }}</h3>
 
+
+  <input type="text" v-model="fullName">
+  <p>{{firstName}}{{lastName}}</p>
 </template>
 
 <script setup>
@@ -58,6 +61,22 @@ const numFormat = computed(() => {
 //   if (Number.isNaN(num.value * 100)) return num.value
 //   return `${num.value * 100}%`
 // }
+
+
+const firstName = ref('Peter');
+const lastName = ref('Chen');
+
+const fullName = computed({
+  get(){
+    return `${firstName.value} ${lastName.value}`
+  },
+  set(newName){
+    const [newfirstName,newLastName] = newName.split(' ');
+    firstName.value = newfirstName;
+    lastName.value = newLastName;
+  }
+})
+
 
 </script>
 
