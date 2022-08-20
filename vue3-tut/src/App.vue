@@ -50,7 +50,6 @@
 import { computed, reactive, ref, watch } from 'vue';
 
 // const text = ref('hello world');
-
 const num = ref(0);
 
 const numFormat = computed(() => {
@@ -90,6 +89,9 @@ const fullName = computed({
 //     text: '',
 //   },
 // })
+
+// 如果不是物件就會使用ref如果是物件就使用reative因為reative只接受物件
+
 
 // reactive
 
