@@ -12,7 +12,7 @@
 
   <!-- <p class="test-cls" :key="test">{{ test }}</p> -->
 
-  <h1>Computed 計算屬性</h1>
+  <!-- <h1>Computed 計算屬性</h1>
 
   <input type="text" v-model="text">
   <br>
@@ -23,7 +23,10 @@
 
 
   <input type="text" v-model="fullName">
-  <p>{{firstName}}{{lastName}}</p>
+  <p>{{firstName}}{{lastName}}</p> -->
+
+
+  <input type="text" v-model="text">
 </template>
 
 <script setup>
@@ -46,7 +49,7 @@
 
 import { computed, ref } from 'vue';
 
-const text = ref('hello world');
+// const text = ref('hello world');
 
 const num = ref(0);
 
@@ -78,6 +81,14 @@ const fullName = computed({
 })
 
 
+
+
+const text = ref('');
+// watch
+
+
+
+// watchEffect
 </script>
 
 
