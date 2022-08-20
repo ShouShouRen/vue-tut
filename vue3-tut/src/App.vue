@@ -48,7 +48,7 @@
 //   test.value = 'apple!'
 // },2000)
 
-import { computed, reactive, ref, watch } from 'vue';
+import { computed, reactive, ref, watch, watchEffect } from 'vue';
 
 // const text = ref('hello world');
 const num = ref(0);
@@ -112,21 +112,23 @@ const text = ref({
 // },{ deep:true })
 
 
-watch(
-  [() => text.value.levels.text, () => text.value.label],
-  (newData, oldData) => {
-    console.log(newData)
-  },
-  {
-    deep: true
-  }
+// watch(
+//   [() => text.value.levels.text, () => text.value.label],
+//   (newData, oldData) => {
+//     console.log(newData)
+//   },
+//   {
+//     deep: true
+//   }
 
-)
+// )
 
 
 
 // watchEffect
-
+watchEffect(() => {
+  console.log(text.value.levels.text,text.value.label);
+})
 
 
 </script>
