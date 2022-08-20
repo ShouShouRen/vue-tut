@@ -91,9 +91,19 @@ const text = ref({
   },
 })
 // watch
-watch(text, (newData, oldData) => {
-  console.log(newData, oldData);
-})
+// watch(text, (newData, oldData) => {
+//   console.log(newData, oldData);
+// },{ deep:true })
+
+
+watch(
+  () => text.value.levels.text,
+  (newData, oldData) => {
+    console.log(newData)
+  },
+
+)
+
 
 
 // watchEffect
