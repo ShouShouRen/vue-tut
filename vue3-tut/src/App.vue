@@ -114,6 +114,9 @@ watch(
   (newData, oldData) => {
     console.log(newData)
   },
+  {
+    deep: true
+  }
 
 )
 
